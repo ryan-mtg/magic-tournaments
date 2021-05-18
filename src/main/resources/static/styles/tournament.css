@@ -1,0 +1,87 @@
+.bracket {
+    width: 760px;
+    float: left;
+    clear: left;
+}
+
+.round {
+    width: 100px;
+    margin-right: 40px;
+    position: relative;
+    float: left;
+}
+
+.match {
+    position: relative;
+    height: 65px;
+}
+
+.match-box {
+    position: relative;
+    float: left;
+}
+
+.team {
+    width: 100px;
+    position: relative;
+    float: left;
+    background-color: lavender;
+}
+
+.team:first-child {
+    border-bottom: 1px solid black;
+}
+
+.team-name {
+    position: absolute;
+    width: 70px;
+    height: 22px;
+    padding: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.score {
+    width: 30px;
+    float: right;
+    padding: 3px;
+    background-color: white;
+    text-align: center;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    background-color: mediumpurple;
+}
+
+.connector {
+    position: absolute;
+    border: 2px solid indigo;
+    border-left-style: none;
+    width: 20px;
+    right: -22px;
+}
+
+.connector-up {
+    border-top-right-radius: 8px;
+    border-bottom: none;
+}
+
+.connector-down {
+    border-bottom-right-radius: 8px;
+    border-top: none;
+}
+
+.connector .connector {
+    border: 0;
+    border-bottom: 2px solid indigo;
+    right: -20px;
+}
+
+.win {
+    color: green;
+}
+
+.lose {
+    color: red;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fragments</title>
+</head>
+<body>
+    <!-- includes -->
+    <div th:fragment="includes" th:remove="tag">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="/styles/main.css">
+        <script type="text/javascript" src="/scripts/main.js"></script>
+        <script th:if="${user.admin}" type="text/javascript" src="/scripts/admin.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/images/favicon.ico"/>
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="Site Name Here">
+        <meta name="twitter:description" th:content="${description} ? ${description} : 'Magic Tournament Website'">
+        <meta name="twitter:image" content="/images/favicon.ico">
+    </div>
+
+    <!-- header -->
+    <div th:fragment="header">
+        <span id="security-token" th:attr="data-token=${_csrf.token}, data-header=${_csrf.headerName}"/>
+
+        <div class="info-banner-frame">
+            <div id="error-banner" class="banner">
+                <span class="banner-icon">&#x2622;&#xFE0F;</span>
+                <span id="error-message">Warning I'm an evil error message!</span>
+                <span class="banner-icon pseudo-link" onclick="dismissErrorMessage()">&#x2612;</span>
+            </div>
+            <div id="warning-banner" class="banner">
+                <span class="banner-icon">&#x26A0;&#xFE0F;</span>
+                <span id="warning-message">Warning I'm an evil warning message!</span>
+                <span class="banner-icon pseudo-link" onclick="dismissWarningMessage()">&#x2612;</span>
+            </div>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li class="left"><div class="navitem index">
+                    <a href="#" th:href="@{/}"><img src="/images/favicon.ico" alt="Tournaments" height="28" width="32"></a>
+                </div></li>
+
+                <li th:if="${user.authenticated && user.admin}" class="left">
+                    <div class="navitem admin">
+                        <a href="/admin">Admin</a>
+                    </div>
+                </li>
+
+
+                <li class="right" th:if="${!user.authenticated}"><div class="navitem twitch">
+                    <a th:href="@{/oauth2/authorization/twitch}">
+                        <img src="/images/glitch.png" alt="Twitch" height="28" width="32">
+                    </a>
+                </div></li>
+
+                <li class="right" th:if="${user.authenticated}"><div class="navitem">
+                    <a href="/logout" th:href="@{#}" onclick="logout('logout-form')">
+                        Logout
+                    </a>
+                    <form style="visibility: hidden" id="logout-form" method="post" action="#" th:action="@{/logout}"></form>
+                </div></li>
+
+                <li class="right" th:if="${user.authenticated}">
+                    <div class="navitem" th:classappend="${user.admin ? 'admin-user' : ''}">
+                        <a href="/user" th:text="${user.twitchName}"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div th:fragment="footer">
+        <hr class="clear">
+    </div>
+</body>
+</html>

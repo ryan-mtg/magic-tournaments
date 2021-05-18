@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+}
+
+.info-banner-frame {
+    margin-bottom: 10px;
+    position: fixed;
+    left: 10%;
+    top: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+.banner {
+    display: none;
+    padding: 0.3em;
+    margin: 5px 0.8em;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 20px;
+    border-radius: 7px;
+}
+
+#warning-banner {
+    color: black;
+    background-color: goldenrod;
+}
+
+#error-banner {
+    color: white;
+    background-color: red;
+}
+
+.navbar {
+    border-bottom: black solid 1px;
+}
+
+.navbar .navitem.admin {
+    background-color: maroon;
+}
+
+.navbar .navitem.admin a {
+    color: whitesmoke;
+}
+
+.navbar .navitem.admin-user {
+    color: maroon;
+}
+
+.twitch {
+    border: #9146FF solid 1px;
+    color: #9146FF;
+    background-color: #F0F0FF !important;
+}
+
+.discord {
+    border: #9146FF solid 1px;
+    color: #9146FF;
+    background-color: #F0F0FF !important;
+}
+
+.twitch:hover a {
+    color: #F0F0FF;
+    background-color: #9146FF !important;
+}
+
+.navbar li {
+    color: black;
+    text-align: center;
+}
+
+.navbar .navitem {
+    border: black solid 1px;
+    vertical-align: middle;
+    display: block;
+    padding: 3px 3px;
+    margin: 6px 13px;
+    height: 36px;
+    line-height: 36px;
+    min-width: 80px;
+    background-color: silver;
+}
+
+.navbar .navicon {
+    min-width: 40px;
+}
+
+.navitem img {
+    position: center;
+    vertical-align: middle;
+}
+
+.navbar .active {
+    background-color: slategray;
+}
+
+.navbar .active a {
+    color: white;
+}
+
+.navbar .active a:hover {
+    background-color: darkslategray !important;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: whitesmoke;
+}
+
+.navbar .index {
+    background-color: whitesmoke;
+    border: 0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.navbar li span {
+    display: block;
+}
+
+.navbar li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar .navitem a:hover {
+    /* Change the link color to #111 (black) on hover */
+    background-color: dimgray;
+    color: white;
+}
+
+.navbar .index a:hover {
+    background-color: whitesmoke;
+}
+

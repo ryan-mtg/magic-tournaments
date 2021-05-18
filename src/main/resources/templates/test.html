@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tournament</title>
+        <link rel="stylesheet" href="/styles/tournament.css">
+    </head>
+    <body>
+        <div class="bracket">
+            <div th:each="round : ${bracket.rounds}" class="round">
+                <div th:each="match : ${round.matches}" class="match" th:style="'height: ' + ${round.matchHeight} + 'px'">
+                    <div class="match-box" th:style="'top: ' + ${round.matchBoxTop} + 'px'">
+                        <div th:replace="tournament_fragments :: team(team = ${match.team1})"></div>
+                        <div th:replace="tournament_fragments :: team(team = ${match.team2})"></div>
+                        <div class="connector" th:if="${!round.last}"
+                             th:style="'height: ' + ${round.connectorHeight} + 'px; '
+                             + ${match.up ? 'top: 22.5px' : 'bottom: 22.5px'}"
+                                th:classappend="${match.up ? 'connector-up' : 'connector-down'}">
+                            <div class="connector" th:style="${match.up ? 'bottom: 0' : 'top: 0'}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

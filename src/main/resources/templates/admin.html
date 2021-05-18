@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration</title>
+    <div th:replace="fragments :: includes"/>
+</head>
+<body>
+    <div th:include="fragments :: header"/>
+    <div class="content">
+        <h1>Organizations</h1>
+        <table class="data-table">
+            <thead><tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Tournament Organizers</th>
+            </tr></thead>
+            <tbody><th:block th:each="organization : ${organizations}">
+                <tr th:text="${organization.name}"></tr>
+                <tr th:text="${organization.id}"></tr>
+                <tr>
+                    <span class="list">
+                        <th:block th:each="to : ${organization.tournamentOrganizers}">
+                            <span th:text="to.name"></span>
+                        </th:block>
+                    </span>
+                </tr>
+            </th:block></tbody>
+        </table>
+        <button>Add Organization</button>
+    </div>
+    <div th:include="fragments :: footer"/>
+</body>
+</html>
